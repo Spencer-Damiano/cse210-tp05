@@ -1,10 +1,7 @@
 import constants
 
 from game.casting.cast import Cast
-
-from game.casting.score import Score
-from game.casting.snake import Snake
-#from game.casting.food import Food
+from game.casting.lightcycle import LightCycle
 from game.scripting.script import Script
 from game.scripting.control_actors_action import ControlActorsAction
 from game.scripting.move_actors_action import MoveActorsAction
@@ -21,10 +18,15 @@ def main():
     
     # create the cast
     cast = Cast()
-    # cast.add_actor("foods", Food())
-    cast.add_actor("snakes", Snake())
-    cast.add_actor("scores", Score())
-   
+    cast.add_actor("cycle_1", LightCycle())
+    cycle_1 = cast.get_first_actor("cycle_1")
+    cycle_1.prepare_body(Point(50, 50), Point(constants.CELL_SIZE, 0), constants.YELLOW)
+    cast.add_actor("cycle_2", LightCycle())
+    cycle_2 = cast.get_first_actor("cycle_2")
+    cycle_2.prepare_body(Point(850, 550), Point(constants.CELL_SIZE, 0), constants.RED)
+
+    # ^^^ Is not working. Not changing start position or the direction.
+
     # start the game
     keyboard_service = KeyboardService()
     video_service = VideoService()
