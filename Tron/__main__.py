@@ -23,9 +23,7 @@ def main():
     cycle_1.prepare_body(Point(50, 50), Point(constants.CELL_SIZE, 0), constants.YELLOW)
     cast.add_actor("cycle_2", LightCycle())
     cycle_2 = cast.get_first_actor("cycle_2")
-    cycle_2.prepare_body(Point(850, 550), Point(constants.CELL_SIZE, 0), constants.RED)
-
-    # ^^^ Is not working. Not changing start position or the direction.
+    cycle_2.prepare_body(Point(845, 545), Point(constants.CELL_SIZE, 0), constants.RED)
 
     # start the game
     keyboard_service = KeyboardService()
